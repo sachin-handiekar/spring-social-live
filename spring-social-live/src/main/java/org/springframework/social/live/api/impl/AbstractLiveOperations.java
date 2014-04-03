@@ -2,7 +2,7 @@ package org.springframework.social.live.api.impl;
 
 import org.springframework.social.MissingAuthorizationException;
 
-class AbstractLiveOperations {
+public class AbstractLiveOperations {
 	private final boolean isAuthorized;
 
 	public AbstractLiveOperations(boolean isAuthorized) {

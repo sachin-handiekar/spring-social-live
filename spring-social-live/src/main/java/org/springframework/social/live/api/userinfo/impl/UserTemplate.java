@@ -1,9 +1,11 @@
-package org.springframework.social.live.api.impl;
+package org.springframework.social.live.api.userinfo.impl;
 
 import java.util.Map;
 
-import org.springframework.social.live.api.LiveProfile;
-import org.springframework.social.live.api.UserOperations;
+import org.springframework.social.live.api.impl.AbstractLiveOperations;
+import org.springframework.social.live.api.impl.LiveTemplate;
+import org.springframework.social.live.api.userinfo.LiveProfile;
+import org.springframework.social.live.api.userinfo.UserOperations;
 import org.springframework.web.client.RestTemplate;
 
 public class UserTemplate extends AbstractLiveOperations implements UserOperations {

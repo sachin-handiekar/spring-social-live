@@ -1,4 +1,5 @@
-package org.springframework.social.live.api;
+package org.springframework.social.live.api.userinfo;
+
 
 public interface UserOperations {
 

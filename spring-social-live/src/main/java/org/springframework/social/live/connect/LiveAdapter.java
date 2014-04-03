@@ -6,7 +6,7 @@ import org.springframework.social.connect.ConnectionValues;
 import org.springframework.social.connect.UserProfile;
 import org.springframework.social.connect.UserProfileBuilder;
 import org.springframework.social.live.api.Live;
-import org.springframework.social.live.api.LiveProfile;
+import org.springframework.social.live.api.userinfo.LiveProfile;
 
 public class LiveAdapter implements ApiAdapter<Live> {
 

@@ -1,4 +1,4 @@
-package org.springframework.social.live.api;
+package org.springframework.social.live.api.userinfo;
 
 import org.codehaus.jackson.annotate.JsonProperty;
 
