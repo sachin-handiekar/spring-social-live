@@ -14,4 +14,9 @@ public interface OneDriveOperations {
 	 */
 	UserQuota getUserQuota();
 
+	/**
+	 * 
+	 * @return FriendlyNameOperations
+	 */
+	FriendlyNameOperations friendlyNameOperations();
 }
