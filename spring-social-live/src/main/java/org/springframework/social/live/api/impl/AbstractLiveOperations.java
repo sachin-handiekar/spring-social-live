@@ -11,7 +11,7 @@ public class AbstractLiveOperations {
 
 	protected void requireAuthorization() {
 		if (!isAuthorized) {
-			throw new MissingAuthorizationException();
+			throw new MissingAuthorizationException("live");
 		}
 	}
 
@@ -19,6 +19,9 @@ public class AbstractLiveOperations {
 		return API_URL_BASE + path;
 	}
 
+	/**
+	 * Base URL Live API's
+	 */
 	private static final String API_URL_BASE = "https://apis.live.net/v5.0/";
 
 }
