@@ -1,5 +1,7 @@
 package org.springframework.social.live.api;
 
+
+
 public interface UserOperations {
 
 	LiveProfile getUserProfile();

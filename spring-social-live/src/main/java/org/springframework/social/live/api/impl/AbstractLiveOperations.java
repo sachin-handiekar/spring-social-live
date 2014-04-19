@@ -1,8 +1,12 @@
 package org.springframework.social.live.api.impl;
 
-import org.springframework.social.MissingAuthorizationException;
+import java.net.URI;
 
-class AbstractLiveOperations {
+import org.springframework.social.MissingAuthorizationException;
+import org.springframework.social.support.URIBuilder;
+import org.springframework.util.MultiValueMap;
+
+public class AbstractLiveOperations {
 	private final boolean isAuthorized;
 
 	public AbstractLiveOperations(boolean isAuthorized) {
@@ -11,7 +15,7 @@ class AbstractLiveOperations {
 
 	protected void requireAuthorization() {
 		if (!isAuthorized) {
-			throw new MissingAuthorizationException();
+			throw new MissingAuthorizationException("live");
 		}
 	}
 
@@ -19,6 +23,21 @@ class AbstractLiveOperations {
 		return API_URL_BASE + path;
 	}
 
+	public URI buildUri(String path, String name, String value) {
+
+		URI uri = URIBuilder.fromUri(API_URL_BASE+path).queryParam(name, value).build();	
+		return uri;
+	}
+
+	public URI buildUri(String path, MultiValueMap<String, String> queryParams) {
+
+		URI uri = URIBuilder.fromUri(API_URL_BASE + path).queryParams(queryParams).build();
+		return uri;
+	}
+
+	/**
+	 * Base URL Live API's
+	 */
 	private static final String API_URL_BASE = "https://apis.live.net/v5.0/";
 
 }
