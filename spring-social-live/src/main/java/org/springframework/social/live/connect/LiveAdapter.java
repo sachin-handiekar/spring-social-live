@@ -30,7 +30,7 @@ public class LiveAdapter implements ApiAdapter<Live> {
 	public UserProfile fetchUserProfile(Live live) {
 		LiveProfile profile = live.userOperations().getUserProfile();
 		return new UserProfileBuilder().setName(profile.getName()).setFirstName(profile.getFirstName())
-				.setLastName(profile.getLastName()).build();
+				.setLastName(profile.getLastName()).setUsername(profile.getId()).build();
 	}
 
 	public void updateStatus(Live live, String message) {
