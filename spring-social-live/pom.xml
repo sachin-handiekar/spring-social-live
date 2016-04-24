@@ -37,6 +37,13 @@
 	</licenses>
 
 
+	<scm>
+		<connection>scm:git:git@github.com/sachin-handiekar/spring-social-live.git</connection>
+		<developerConnection>scm:git:git@github.com:sachin-handiekar/spring-social-live.git</developerConnection>
+		<url>git@github.com:sachin-handiekar/spring-social-live.git</url>
+	</scm>
+
+
 	<properties>
 	
 		<servlet.api.version>2.5</servlet.api.version>		
