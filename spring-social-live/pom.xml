@@ -1,6 +1,11 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" 
 	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
 	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<parent>
+		<groupId>org.sonatype.oss</groupId>
+		<artifactId>oss-parent</artifactId>
+		<version>7</version>
+	</parent>
 
 	<modelVersion>4.0.0</modelVersion>
   	<groupId>org.springframework.social</groupId>
@@ -10,8 +15,7 @@
  	<description>Spring Social extension with connection support and an API binding for Windows Live API</description>
 
 	
-	<url></url>
-	<developers>
+ 	<developers>
 		<developer>
 			<name>Sachin Handiekar</name>
 			<email>sach21@gmail.com</email>
@@ -23,6 +27,14 @@
 		</developer>
 	</developers>
 
+	<licenses>
+		<license>
+			<name>MIT</name>
+			<url>https://github.com/sachin-handiekar/spring-social-live/blob/master/LICENSE</url>
+		</license>
+	</licenses>
+
+
 	<properties>
 	
 		<servlet.api.version>2.5</servlet.api.version>		
@@ -33,9 +45,16 @@
 		
 		<!-- Jackson - Java JSON Parser and Data Binder -->
 		<jackson.version>1.9.13</jackson.version>
-		
+
+		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+
+		<maven-gpg-plugin.version>1.4</maven-gpg-plugin.version>
+		<maven-compiler-plugin.java.source.version>1.7</maven-compiler-plugin.java.source.version>
+		<maven-compiler-plugin.java.target.version>1.7</maven-compiler-plugin.java.target.version>
+		<maven-compiler-plugin.version>3.0</maven-compiler-plugin.version>
 	</properties>
-	
+
+
 	<repositories>
 		<repository>
 			<id>org.springframework.maven.release</id>
@@ -132,18 +151,112 @@
 		
 	</dependencies>
 
+
+
+
+	<distributionManagement>
+		<snapshotRepository>
+			<id>ossrh</id>
+			<url>https://oss.sonatype.org/content/repositories/snapshots</url>
+		</snapshotRepository>
+	</distributionManagement>
+
+
+
 	<build>
+
 		<plugins>
+			<plugin>
+				<groupId>org.sonatype.plugins</groupId>
+				<artifactId>nexus-staging-maven-plugin</artifactId>
+				<version>1.6.3</version>
+				<extensions>true</extensions>
+				<configuration>
+					<serverId>ossrh</serverId>
+					<nexusUrl>https://oss.sonatype.org/</nexusUrl>
+					<autoReleaseAfterClose>true</autoReleaseAfterClose>
+				</configuration>
+			</plugin>
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
 				<artifactId>maven-compiler-plugin</artifactId>
-				<version>3.1</version>
+				<version>${maven-compiler-plugin.version}</version>
 				<configuration>
-					<source>1.7</source>
-					<target>1.7</target>
+					<source>${maven-compiler-plugin.java.source.version}</source>
+					<target>${maven-compiler-plugin.java.target.version}</target>
 				</configuration>
 			</plugin>
+
+			<!-- cobertura -->
+			<plugin>
+				<groupId>org.codehaus.mojo</groupId>
+				<artifactId>cobertura-maven-plugin</artifactId>
+				<version>2.7</version>
+				<configuration>
+					<format>xml</format>
+					<maxmem>256m</maxmem>
+					<!-- aggregated reports for multi-module projects -->
+					<aggregate>true</aggregate>
+				</configuration>
+			</plugin>
+
+
 		</plugins>
 	</build>
+
+	<profiles>
+		<profile>
+			<id>release-sign-artifacts</id>
+			<activation>
+				<property>
+					<name>gpg-sign</name>
+					<value>true</value>
+				</property>
+			</activation>
+			<build>
+				<plugins>
+					<plugin>
+						<groupId>org.apache.maven.plugins</groupId>
+						<artifactId>maven-source-plugin</artifactId>
+						<version>2.2.1</version>
+						<executions>
+							<execution>
+								<id>attach-sources</id>
+								<goals>
+									<goal>jar-no-fork</goal>
+								</goals>
+							</execution>
+						</executions>
+					</plugin>
+					<plugin>
+						<groupId>org.apache.maven.plugins</groupId>
+						<artifactId>maven-javadoc-plugin</artifactId>
+						<executions>
+							<execution>
+								<id>attach-javadocs</id>
+								<goals>
+									<goal>jar</goal>
+								</goals>
+							</execution>
+						</executions>
+					</plugin>
+					<plugin>
+						<groupId>org.apache.maven.plugins</groupId>
+						<artifactId>maven-gpg-plugin</artifactId>
+						<version>${maven-gpg-plugin.version}</version>
+						<executions>
+							<execution>
+								<id>sign-artifacts</id>
+								<phase>verify</phase>
+								<goals>
+									<goal>sign</goal>
+								</goals>
+							</execution>
+						</executions>
+					</plugin>
+				</plugins>
+			</build>
+		</profile>
+	</profiles>
 	
 </project>
