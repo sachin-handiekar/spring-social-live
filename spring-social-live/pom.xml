@@ -8,10 +8,12 @@
 	</parent>
 
 	<modelVersion>4.0.0</modelVersion>
-  	<groupId>org.springframework.social</groupId>
+  	<groupId>com.sachinhandiekar</groupId>
   	<artifactId>spring-social-live</artifactId>
   	<version>1.0.0-SNAPSHOT</version>
-  	<name>spring-social-live</name>
+	<packaging>jar</packaging>
+
+  	<name>Spring Social Live</name>
  	<description>Spring Social extension with connection support and an API binding for Windows Live API</description>
 
 	
