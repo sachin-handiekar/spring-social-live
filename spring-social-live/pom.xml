@@ -47,18 +47,18 @@
 	
 		<servlet.api.version>2.5</servlet.api.version>		
 		<!-- Spring -->		
-		<spring.social.version>1.1.0.M4</spring.social.version>
-		<spring.framework.version>3.2.8.RELEASE</spring.framework.version>
-		<spring.security.version>3.2.3.RELEASE</spring.security.version>
+		<spring.social.version>1.1.4.RELEASE</spring.social.version>
+		<spring.framework.version>4.2.6.RELEASE</spring.framework.version>
+		<spring.security.version>3.2.5.RELEASE</spring.security.version>
 		
 		<!-- Jackson - Java JSON Parser and Data Binder -->
-		<jackson.version>1.9.13</jackson.version>
+		<jackson.version>2.6.4</jackson.version>
 
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 
 		<maven-gpg-plugin.version>1.4</maven-gpg-plugin.version>
-		<maven-compiler-plugin.java.source.version>1.7</maven-compiler-plugin.java.source.version>
-		<maven-compiler-plugin.java.target.version>1.7</maven-compiler-plugin.java.target.version>
+		<maven-compiler-plugin.java.source.version>1.6</maven-compiler-plugin.java.source.version>
+		<maven-compiler-plugin.java.target.version>1.6</maven-compiler-plugin.java.target.version>
 		<maven-compiler-plugin.version>3.0</maven-compiler-plugin.version>
 	</properties>
 
@@ -146,8 +146,18 @@
 		
 		<!-- Jackson  JSON -->
 		<dependency>
-			<groupId>org.codehaus.jackson</groupId>
-			<artifactId>jackson-mapper-asl</artifactId>
+			<groupId>com.fasterxml.jackson.core</groupId>
+			<artifactId>jackson-core</artifactId>
+			<version>${jackson.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>com.fasterxml.jackson.core</groupId>
+			<artifactId>jackson-databind</artifactId>
+			<version>${jackson.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>com.fasterxml.jackson.core</groupId>
+			<artifactId>jackson-annotations</artifactId>
 			<version>${jackson.version}</version>
 		</dependency>
 		

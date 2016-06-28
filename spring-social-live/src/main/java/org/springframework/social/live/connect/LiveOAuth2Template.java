@@ -28,7 +28,7 @@ public class LiveOAuth2Template extends OAuth2Template  {
         RestTemplate template = super.createRestTemplate();
         for (HttpMessageConverter<?> converter : template.getMessageConverters()){
             if(converter instanceof MappingJackson2HttpMessageConverter){
-                List<MediaType> supportedMediaTypes = new ArrayList<>();
+                List<MediaType> supportedMediaTypes = new ArrayList<MediaType>();
                 // Add all default
                 supportedMediaTypes.addAll(converter.getSupportedMediaTypes());
                 // And also handle text/html json returned on POST to /token
