@@ -1,11 +1,7 @@
 package org.springframework.social.live.api.onedrive.impl;
 
-import java.net.URI;
-import java.util.List;
-
-import org.codehaus.jackson.JsonNode;
-import org.codehaus.jackson.map.ObjectMapper;
-import org.codehaus.jackson.type.TypeReference;
+import com.fasterxml.jackson.databind.JavaType;
+import com.fasterxml.jackson.databind.ObjectMapper;
 import org.springframework.social.live.api.impl.AbstractLiveOperations;
 import org.springframework.social.live.api.onedrive.FilterType;
 import org.springframework.social.live.api.onedrive.FriendlyNameOperations;
@@ -15,6 +11,9 @@ import org.springframework.social.live.api.onedrive.UserQuota;
 import org.springframework.util.LinkedMultiValueMap;
 import org.springframework.util.MultiValueMap;
 import org.springframework.web.client.RestTemplate;
+
+import java.net.URI;
+import java.util.List;
 
 public class OneDriveTemplate extends AbstractLiveOperations implements OneDriveOperations {
 
@@ -70,10 +69,11 @@ public class OneDriveTemplate extends AbstractLiveOperations implements OneDrive
 	private List<Metadata> listOfMetadata(URI uri) {
 		
 		ObjectMapper objectMapper = new ObjectMapper();
-		JsonNode jsonNode = restTemplate.getForObject(uri, JsonNode.class);
+		String json = restTemplate.getForObject(uri, String.class);
 		
 		try {
-			return objectMapper.readValue(jsonNode, new TypeReference<List<Metadata>>() {});
+			JavaType type = objectMapper.getTypeFactory().constructCollectionType(List.class, Metadata.class);
+			return objectMapper.readValue(json, type);
 		} catch(Exception ex) {
 			throw new RuntimeException(ex);
 		}

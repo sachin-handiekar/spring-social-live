@@ -1,6 +1,7 @@
 package org.springframework.social.live.api;
 
-import org.codehaus.jackson.annotate.JsonProperty;
+
+import com.fasterxml.jackson.annotation.JsonProperty;
 
 public class LiveProfile {
 
@@ -15,6 +16,8 @@ public class LiveProfile {
 	private final String lastName;
 
 	private final String gender;
+
+	private final String email;
 	
 	private String link;
 
@@ -23,12 +26,13 @@ public class LiveProfile {
 	@JsonProperty("updated_time")
 	private String updatedTime;
 
-	public LiveProfile(String id, String name, String firstName, String lastName, String gender, String locale) {
+	public LiveProfile(String id, String name, String firstName, String lastName, String gender, String email, String locale) {
 		this.id = id;
 		this.name = name;
 		this.firstName = firstName;
 		this.lastName = lastName;
 		this.gender = gender;
+		this.email = email;
 	}
 
 	public String getLocale() {
@@ -53,6 +57,10 @@ public class LiveProfile {
 
 	public String getLastName() {
 		return lastName;
+	}
+
+	public String getEmail() {
+		return email;
 	}
 
 	public String getGender() {

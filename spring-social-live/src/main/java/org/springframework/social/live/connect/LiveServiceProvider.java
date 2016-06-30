@@ -10,6 +10,7 @@ public class LiveServiceProvider extends AbstractOAuth2ServiceProvider<Live> {
 		super(new LiveOAuth2Template(clientId, clientSecret));
 	}
 
+	@Override
 	public Live getApi(String accessToken) {
 		return new LiveTemplate(accessToken);
 	}

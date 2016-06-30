@@ -1,14 +1,13 @@
 package org.springframework.social.live.api.onedrive.impl;
 
-import java.util.List;
-
-import org.codehaus.jackson.JsonNode;
-import org.codehaus.jackson.map.ObjectMapper;
-import org.codehaus.jackson.type.TypeReference;
+import com.fasterxml.jackson.databind.JavaType;
+import com.fasterxml.jackson.databind.ObjectMapper;
 import org.springframework.social.live.api.impl.AbstractLiveOperations;
 import org.springframework.social.live.api.onedrive.FriendlyNameOperations;
 import org.springframework.social.live.api.onedrive.Metadata;
 import org.springframework.web.client.RestTemplate;
+
+import java.util.List;
 
 public class FriendlyNameTemplate extends AbstractLiveOperations implements FriendlyNameOperations {
 
@@ -72,10 +71,11 @@ public class FriendlyNameTemplate extends AbstractLiveOperations implements Frie
 	private List<Metadata> listOfMetadata(String path) {
 		
 		ObjectMapper objectMapper = new ObjectMapper();
-		JsonNode jsonNode = restTemplate.getForObject(buildUri(path), JsonNode.class);
+		String json = restTemplate.getForObject(buildUri(path), String.class);
 		
 		try {
-			return objectMapper.readValue(jsonNode, new TypeReference<List<Metadata>>() {});
+			JavaType type = objectMapper.getTypeFactory().constructCollectionType(List.class, Metadata.class);
+			return objectMapper.readValue(json, type);
 		} catch(Exception ex) {
 			throw new RuntimeException(ex);
 		}
