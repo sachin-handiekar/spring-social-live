@@ -171,7 +171,6 @@
 
 
 
-
 	<distributionManagement>
 		<snapshotRepository>
 			<id>ossrh</id>
@@ -179,10 +178,7 @@
 		</snapshotRepository>
 	</distributionManagement>
 
-
-
 	<build>
-
 		<plugins>
 			<plugin>
 				<groupId>org.sonatype.plugins</groupId>
@@ -204,21 +200,28 @@
 					<target>${maven-compiler-plugin.java.target.version}</target>
 				</configuration>
 			</plugin>
+
+			<!-- cobertura -->
 			<plugin>
-				<groupId>org.apache.maven.plugins</groupId>
-				<artifactId>maven-release-plugin</artifactId>
-				<version>2.2.1</version>
-				<executions>
-					<execution>
-						<id>default</id>
-						<goals>
-							<goal>perform</goal>
-						</goals>
-						<configuration>
-							<pomFileName>spring-social-live/pom.xml</pomFileName>
-						</configuration>
-					</execution>
-				</executions>
+				<groupId>org.codehaus.mojo</groupId>
+				<artifactId>cobertura-maven-plugin</artifactId>
+				<version>2.7</version>
+				<configuration>
+					<format>xml</format>
+					<maxmem>256m</maxmem>
+					<!-- aggregated reports for multi-module projects -->
+					<aggregate>true</aggregate>
+				</configuration>
+			</plugin>
+
+			<!-- coveralls -->
+			<plugin>
+				<groupId>org.eluder.coveralls</groupId>
+				<artifactId>coveralls-maven-plugin</artifactId>
+				<version>3.2.0</version>
+				<configuration>
+					<repoToken>${coveralls_repo_token}</repoToken>
+				</configuration>
 			</plugin>
 		</plugins>
 	</build>
@@ -277,5 +280,4 @@
 			</build>
 		</profile>
 	</profiles>
-	
 </project>
