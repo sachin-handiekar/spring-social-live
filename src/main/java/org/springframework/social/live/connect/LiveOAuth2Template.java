@@ -12,7 +12,7 @@ import java.util.List;
 public class LiveOAuth2Template extends OAuth2Template  {
 
 	public LiveOAuth2Template(String clientId, String clientSecret) {
-		super(clientId, clientSecret, "https://oauth.live.com/authorize", "https://oauth.live.com/token");
+		super(clientId, clientSecret, "https://login.live.com/oauth20_authorize.srf", "https://login.live.com/oauth20_token.srf");
 		setUseParametersForClientAuthentication(true);
 	}
 
