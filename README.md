@@ -1,4 +1,4 @@
-#spring-social-live [![Build Status](https://travis-ci.org/sachin-handiekar/spring-social-live.svg)](https://travis-ci.org/sachin-handiekar/spring-social-live) [![Maven Central](https://img.shields.io/maven-central/v/com.sachinhandiekar/spring-social-live.svg)](https://img.shields.io/maven-central/v/com.sachinhandiekar/spring-social-live.svg) 
+# spring-social-live [![Build Status](https://travis-ci.org/sachin-handiekar/spring-social-live.svg)](https://travis-ci.org/sachin-handiekar/spring-social-live) [![Maven Central](https://img.shields.io/maven-central/v/com.sachinhandiekar/spring-social-live.svg)](https://img.shields.io/maven-central/v/com.sachinhandiekar/spring-social-live.svg) 
 
 ## <a name="introduction">Introduction</a> [&#8593;](#toc)
 
