@@ -14,7 +14,7 @@ If you're using Maven in your project, then you can integrate jInstagram by addi
 <dependency>
    <groupId>com.sachinhandiekar</groupId>
    <artifactId>spring-social-live</artifactId>
-   <version>1.0.3</version>
+   <version>1.0.4</version>
 </dependency>
 ```
 
@@ -39,7 +39,7 @@ If you prefer using the latest snapshot build, include the following lines to yo
         <dependency>
             <groupId>com.sachinhandiekar</groupId>
             <artifactId>spring-social-live</artifactId>
-             <version>1.0.4-SNAPSHOT</version>
+             <version>1.0.5-SNAPSHOT</version>
         </dependency>
     </dependencies>
 ```
