@@ -1,1 +1,1 @@
-http\://www.springframework.org/schema/social/live=org.springframework.social.google.config.xml.LiveNamespaceHandler
+http\://www.springframework.org/schema/social/live=org.springframework.social.live.config.xml.LiveNamespaceHandler
