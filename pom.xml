@@ -47,8 +47,8 @@
 		<servlet.api.version>2.5</servlet.api.version>		
 		<!-- Spring -->		
 		<spring.social.version>1.1.4.RELEASE</spring.social.version>
-		<spring.framework.version>4.2.6.RELEASE</spring.framework.version>
-		<spring.security.version>3.2.5.RELEASE</spring.security.version>
+		<spring.framework.version>5.2.18.RELEASE</spring.framework.version>
+		<spring.security.version>4.0.1.RELEASE</spring.security.version>
 		
 		<!-- Jackson - Java JSON Parser and Data Binder -->
 		<jackson.version>2.6.4</jackson.version>
