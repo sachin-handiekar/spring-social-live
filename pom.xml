@@ -51,7 +51,7 @@
 		<spring.security.version>3.2.5.RELEASE</spring.security.version>
 		
 		<!-- Jackson - Java JSON Parser and Data Binder -->
-		<jackson.version>2.6.4</jackson.version>
+		<jackson.version>2.13.2</jackson.version>
 
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 
